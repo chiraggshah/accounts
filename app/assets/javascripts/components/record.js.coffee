@@ -16,6 +16,7 @@
         record: data
       success: (data) =>
         @setState edit: false
+        @props.handleEditRecord @props.record, data
 
   handleToggle: (e) ->
     e.preventDefault()

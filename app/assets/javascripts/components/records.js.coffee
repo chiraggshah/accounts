@@ -10,7 +10,7 @@
     @setState records: records
 
   updateRecord: (record, data) ->
-    index = @state.record.indexOf record
+    index = @state.records.indexOf record
     records = React.addons.update(@state.records, { $splice: [[index, 1, data]] })
     @replaceState records: records
 
@@ -40,9 +40,11 @@
       React.DOM.h2
         className: 'title'
         'Records'
-      React.createElement AmountBox, type: 'success', amount: @credits(), text: 'Credit'
-      React.createElement AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
-      React.createElement AmountBox, type: 'info', amount: @balance(), text: 'Balance'
+      React.DOM.div
+        className: 'row'
+        React.createElement AmountBox, type: 'success', amount: @credits(), text: 'Credit'
+        React.createElement AmountBox, type: 'danger', amount: @debits(), text: 'Debit'
+        React.createElement AmountBox, type: 'info', amount: @balance(), text: 'Balance'
       React.createElement RecordForm, handleNewRecord: @addRecord
       React.DOM.hr null
       React.DOM.table
