@@ -22,6 +22,12 @@
       prev + parseFloat(curr.amount)
     ), 0
 
+  deleteRecord: (record) ->
+    records = @state.records.slice()
+    index = records.indexOf record
+    records.splice index, 1
+    @replaceState records: records
+
   balance: ->
     @debits() + @credits()
 
@@ -43,6 +49,7 @@
             React.DOM.th null, 'Date'
             React.DOM.th null, 'Title'
             React.DOM.th null, 'Amount'
+            React.DOM.th null, 'Actions'
         React.DOM.tbody null,
           for record in @state.records
-            React.createElement Record, key: record.id, record: record
+            React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord
