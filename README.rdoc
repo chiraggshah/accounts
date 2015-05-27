@@ -1,2 +1,1 @@
-React.js - a tutorial posted on Airpair which explains how to integrate React.js into a Ruby on Rails application.
-Tutorial Link: https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers
+React.js - a tutorial posted on Airpair which explains how to integrate React.js into a Ruby on Rails application.  Tutorial Link: https://www.airpair.com/reactjs/posts/reactjs-a-guide-for-rails-developers
