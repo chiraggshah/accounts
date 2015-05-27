@@ -6,8 +6,7 @@
     records: []
 
   addRecord: (record) ->
-    records = @state.records.slice()
-    records.push record
+    records = React.addons.update(@state.records, { $push: [record] })
     @setState records: records
 
   credits: ->
@@ -23,9 +22,8 @@
     ), 0
 
   deleteRecord: (record) ->
-    records = @state.records.slice()
-    index = records.indexOf record
-    records.splice index, 1
+    index = @state.records.indexOf record
+    records = React.addons.update(@state.records, { $splice: [[index, 1]] })
     @replaceState records: records
 
   balance: ->
